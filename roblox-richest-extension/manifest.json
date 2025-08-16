@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Roblox Community Richest Finder",
+  "version": "1.0.0",
+  "description": "Enter a Roblox community link or ID to list members sorted by value of Roblox-made limiteds (RAP ≥ 10,000).",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://groups.roblox.com/*",
+    "https://inventory.roblox.com/*",
+    "https://economy.roblox.com/*",
+    "https://catalog.roblox.com/*",
+    "https://users.roblox.com/*",
+    "https://thumbnails.roblox.com/*"
+  ],
+  "action": {
+    "default_title": "Roblox Community Richest",
+    "default_popup": "popup.html"
+  }
+}
