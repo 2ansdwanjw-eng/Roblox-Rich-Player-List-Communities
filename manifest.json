@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Roblox Community Rich Players Finder",
+  "version": "1.0",
+  "description": "Find the richest players in a Roblox community based on their limiteds",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://groups.roblox.com/*",
+    "https://apis.roblox.com/*",
+    "https://api.rolimons.com/*",
+    "https://inventory.roblox.com/*",
+    "https://users.roblox.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Roblox Rich Players Finder"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
