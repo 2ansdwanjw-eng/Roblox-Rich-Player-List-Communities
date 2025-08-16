@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 400px;
+            min-height: 500px;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .input-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            box-sizing: border-box;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .search-btn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+        
+        .refresh-btn {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .refresh-btn:hover {
+            background: #F57C00;
+            transform: translateY(-1px);
+        }
+        
+        .refresh-btn:disabled,
+        .search-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+        }
+        
+        .error {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            color: #ffcdd2;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .player-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s ease;
+        }
+        
+        .player-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .player-rank {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .player-info {
+            flex: 1;
+        }
+        
+        .player-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+        
+        .player-value {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+            font-style: italic;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #4CAF50;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤑 Rich Players Finder</h1>
+        <p style="margin: 5px 0; font-size: 12px; opacity: 0.8;">Find the wealthiest players in Roblox communities</p>
+    </div>
+    
+    <div class="input-section">
+        <div class="input-group">
+            <label for="communityUrl">Roblox Community URL:</label>
+            <input type="text" 
+                   id="communityUrl" 
+                   placeholder="https://www.roblox.com/communities/12345/..."
+                   autocomplete="off">
+        </div>
+        
+        <div class="button-group">
+            <button id="searchBtn" class="search-btn">🔍 Search for List</button>
+            <button id="refreshBtn" class="refresh-btn" disabled>🔄 Refresh</button>
+        </div>
+    </div>
+    
+    <div class="results-section">
+        <div id="results">
+            <div class="no-results">
+                Enter a Roblox community URL above and click "Search for List" to find the richest players!
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
